@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tr? L� ?o C?a Tr?n H?ng</title>
+    <title>Trợ Lý Ảo Cửa Trần Hằng</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Vietnamese IME Library -->
@@ -35,7 +35,7 @@
             <header class="p-4 border-b dark:border-gray-700 flex items-center justify-between bg-blue-600 text-white">
                 <div class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><path d="M12 15V12c0-2 2-4 4-4s4 2 4 4v3"/><path d="M8 15V12c0-2-2-4-4-4S0 10 0 12v3"/><path d="M12 15h0a2 0 0 0-2-2h-2a2 0 0 0-2 2v3c0 1.1.9 2 2 2h4a2 0 0 0 2-2v-3c0-1.1-.9-2-2-2Z"/><path d="M18 15h0a2 0 0 1 2-2h2a2 0 0 1 2 2v3c0 1.1-.9 2-2 2h-4a2 0 0 1-2-2v-3c0-1.1.9-2 2-2Z"/></svg>
-                    <h1 class="text-lg md:text-xl font-bold">(Tr? L� ?o) Tr?n H?ng </h1>
+                    <h1 class="text-lg md:text-xl font-bold">(Trợ Lý Ảo) Trần Hằng </h1>
                 </div>
             </header>
 
@@ -49,9 +49,9 @@
                     <label for="image-input" id="image-upload-button" class="cursor-pointer p-3 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-500 dark:text-gray-400"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
                     </label>
-                    <input type="text" id="user-input" placeholder="Nh?p tin nh?n, d�n ho?c k�o th? ?nh..." class="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-white" autocomplete="off">
+                    <input type="text" id="user-input" placeholder="Nhập tin nhắn, dán hoặc kéo thả ảnh..." class="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-white" autocomplete="off">
                     <button type="submit" id="send-button" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-blue-400 disabled:cursor-not-allowed flex items-center justify-center">
-                        <span id="send-text">G?i</span>
+                        <span id="send-text">Gửi</span>
                         <svg id="loading-spinner" class="animate-spin h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
                     </button>
                 </form>
@@ -73,9 +73,9 @@
         let currentApiKeyIndex = 0; 
         
         // ===================================================================================
-        // !!! C?U H�NH DUY NH?T T?I ��Y !!!
-        // THAY TH? C�C KEY M?U B?NG API KEY TH?T C?A B?N.
-        // C?NH B�O: KH�NG �ANG T?I FILE N�Y L�N INTERNET C�NG C?NG V� S? L�M L? KEY.
+        // !!! CẤU HÌNH DUY NHẤT TẠI ĐÂY !!!
+        // THAY THẾ CÁC KEY MẪU BẰNG API KEY THẬT CỦA BẠN.
+        // CẢNH BÁO: KHÔNG ĐĂNG TẢI FILE NÀY LÊN INTERNET CÔNG CỘNG VÌ SẼ LÀM LỘ KEY.
         // ===================================================================================
         const apiKeys = [
             "AIzaSyCg4gg9GLf6SPzhYCNMvTZyIuuQZPRw04",
@@ -83,110 +83,110 @@
             "AIzaSyDxr0SL3tbWE2kdp2oBB3Ru4UxpbuimZD0",
             "AIzaSyBR-duVUWZG-lD5usabYD3NS_-tZySMlcA",
             "AIzaSyBNagv3kn8vAJzbyMYlvLLCccNGbFa4ySc",
-            // Th�m c�c key kh�c v�o d�y, m?i key l� m?t chu?i trong m?ng.
+            // Thêm các key khác vào đây, mỗi key là một chuỗi trong mảng.
         ];
 
         // --- Core Functions ---
         const getGeminiResponse = async (retryCount = 0) => {
             if (apiKeys.length === 0 || apiKeys.every(k => k.startsWith("YOUR_API_KEY"))) {
-                throw new Error("Vui l�ng c?u h�nh �t nh?t m?t API key th?t trong m� ngu?n.");
+                throw new Error("Vui lòng cấu hình ít nhất một API key thật trong mã nguồn.");
             }
             if (retryCount >= apiKeys.length) {
-                throw new Error("T?t c? API key d?u kh�ng ho?t d?ng. Vui l�ng ki?m tra l?i.");
+                throw new Error("Tất cả API key đều không hoạt động. Vui lòng kiểm tra lại.");
             }
             
             const apiKey = apiKeys[currentApiKeyIndex];
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
             
             const systemInstructionText = `
-                Em l� tr? l� AI c?a Tr?n Th? Thu� H?ng, du?c ph�t tri?n b?i Google, c� kh? nang tuong t? nhu Gemini.
-                Nhi?m v? c?a em l� h? tr? ch? m?t c�ch t?t nh?t c� th? trong m?i linh v?c.
+                Em là trợ lý AI của Trần Thị Thuý Hằng, được phát triển bởi Google, có khả năng tương tự như Gemini.
+                Nhiệm vụ của em là hỗ trợ chị một cách tốt nhất có thể trong mọi lĩnh vực.
 
-                **Kh? nang c?a em:**
-                - Tr? l?i c�c c�u h?i ki?n th?c chung, gi?i th�ch c�c kh�i ni?m ph?c t?p.
-                - Ph�n t�ch v� m� t? n?i dung h�nh ?nh do ch? cung c?p. Em c� th? d?c van b?n trong ?nh, nh?n d?ng d?i tu?ng, v� m� t? c?nh v?t.
-                - S�ng t?o n?i dung: vi?t van, l�m tho, so?n email, v.v.
-                - H? tr? l?p tr�nh, d?ch thu?t v� nhi?u t�c v? kh�c.
-                - Lu�n lu�n tr? l?i b?ng ti?ng Vi?t m?t c�ch t? nhi�n v� th�n thi?n.
+                **Khả năng của em:**
+                - Trả lời các câu hỏi kiến thức chung, giải thích các khái niệm phức tạp.
+                - Phân tích và mô tả nội dung hình ảnh do chị cung cấp. Em có thể đọc văn bản trong ảnh, nhận dạng đối tượng, và mô tả cảnh vật.
+                - Sáng tạo nội dung: viết văn, làm thơ, soạn email, v.v.
+                - Hỗ trợ lập trình, dịch thuật và nhiều tác vụ khác.
+                - Luôn luôn trả lời bằng tiếng Việt một cách tự nhiên và thân thiện.
 
-                **Qu?n l� don h�ng (QUAN TR?NG):**
-                Ch? c� th? y�u c?u em luu l?i c�c m?t h�ng v� s? lu?ng theo ng�y gi? v�o b? nh? c?c b? c?a tr�nh duy?t.
-                �? luu don h�ng, ch? ch? c?n nh?p t�n m?t h�ng v� s? lu?ng.
-                V� d?:
-                - "c� com 1kg"
-                - "rau c?i 2 b�"
-                - "c� m� 3 con"
-                - "m? g� 500g"
+                **Quản lý đơn hàng (QUAN TRỌNG):**
+                Chị có thể yêu cầu em lưu lại các mặt hàng và số lượng theo ngày giờ vào bộ nhớ cục bộ của trình duyệt.
+                Để lưu đơn hàng, chị chỉ cần nhập tên mặt hàng và số lượng.
+                Ví dụ:
+                - "cá cơm 1kg"
+                - "rau cải 2 bó"
+                - "cá mú 3 con"
+                - "mề gà 500g"
                 
-                Khi ch? nh?p c�c m?t h�ng v� s? lu?ng nhu tr�n, em s? ph?n h?i l?i b?ng d?nh d?ng d?c bi?t sau d? h? th?ng c� th? x? l�:
-                \`ORDER_SAVE: [{"item": "T�n m?t h�ng 1", "quantity": "S? lu?ng 1"}, {"item": "T�n m?t h�ng 2", "quantity": "S? lu?ng 2"}]\`
-                V� d? c? th? cho "c� com 1kg, rau c?i 2 b�":
-                \`ORDER_SAVE: [{"item": "c� com", "quantity": "1kg"}, {"item": "rau c?i", "quantity": "2 b�"}]\`
-                �?m b?o d?nh d?ng JSON h?p l?, bao g?m d?u ngo?c vu�ng cho m?ng v� d?u ngo?c nh?n cho t?ng d?i tu?ng m?t h�ng.
+                Khi chị nhập các mặt hàng và số lượng như trên, em sẽ phản hồi lại bằng định dạng đặc biệt sau để hệ thống có thể xử lý:
+                \`ORDER_SAVE: [{"item": "Tên mặt hàng 1", "quantity": "Số lượng 1"}, {"item": "Tên mặt hàng 2", "quantity": "Số lượng 2"}]\`
+                Ví dụ cụ thể cho "cá cơm 1kg, rau cải 2 bó":
+                \`ORDER_SAVE: [{"item": "cá cơm", "quantity": "1kg"}, {"item": "rau cải", "quantity": "2 bó"}]\`
+                Đảm bảo định dạng JSON hợp lệ, bao gồm dấu ngoặc vuông cho mảng và dấu ngoặc nhọn cho từng đối tượng mặt hàng.
 
-                Khi ch? mu?n xem l?i don h�ng, ch? c� th? n�i:
-                - "L?y don h�ng" ho?c "Xu?t don h�ng h�m nay": Em s? hi?u l� ch? mu?n l?y t?t c? don h�ng d� nh?p trong ng�y h�m nay v� ph?n h?i l?i b?ng d?nh d?ng: \`ORDER_RETRIEVE: CURRENT_DAY\`
-                - "L?y don h�ng ng�y YYYY-MM-DD" ho?c "Xu?t don h�ng ng�y YYYY-MM-DD": Em s? ph?n h?i l?i b?ng d?nh d?ng: \`ORDER_RETRIEVE: YYYY-MM-DD\` (trong d� YYYY-MM-DD l� ng�y c? th?, v� d?: 2025-07-21)
-                - "L?y don h�ng ng�y DD th�ng MM" ho?c "Xu?t don h�ng ng�y DD th�ng MM": Em s? hi?u l� ch? mu?n l?y don h�ng c?a ng�y d� trong nam hi?n t?i v� ph?n h?i l?i b?ng d?nh d?ng: \`ORDER_RETRIEVE: YYYY-MM-DD\` (v� d?: "L?y don h�ng ng�y 21 th�ng 7" s? l� \`ORDER_RETRIEVE: 2025-07-21\` n?u nam hi?n t?i l� 2025).
+                Khi chị muốn xem lại đơn hàng, chị có thể nói:
+                - "Lấy đơn hàng" hoặc "Xuất đơn hàng hôm nay": Em sẽ hiểu là chị muốn lấy tất cả đơn hàng đã nhập trong ngày hôm nay và phản hồi lại bằng định dạng: \`ORDER_RETRIEVE: CURRENT_DAY\`
+                - "Lấy đơn hàng ngày YYYY-MM-DD" hoặc "Xuất đơn hàng ngày YYYY-MM-DD": Em sẽ phản hồi lại bằng định dạng: \`ORDER_RETRIEVE: YYYY-MM-DD\` (trong đó YYYY-MM-DD là ngày cụ thể, ví dụ: 2025-07-21)
+                - "Lấy đơn hàng ngày DD tháng MM" hoặc "Xuất đơn hàng ngày DD tháng MM": Em sẽ hiểu là chị muốn lấy đơn hàng của ngày đó trong năm hiện tại và phản hồi lại bằng định dạng: \`ORDER_RETRIEVE: YYYY-MM-DD\` (ví dụ: "Lấy đơn hàng ngày 21 tháng 7" sẽ là \`ORDER_RETRIEVE: 2025-07-21\` nếu năm hiện tại là 2025).
 
-                Sau khi h? th?ng x? l� xong, em s? th�ng b�o l?i cho ch?.
+                Sau khi hệ thống xử lý xong, em sẽ thông báo lại cho chị.
 
-                **Th�ng tin b? sung (ch? cung c?p khi du?c h?i):**
-                N?u ch? h?i v? "C�ng Ty Thi?t K? In ?n H?i An", em c� th? cung c?p th�ng tin sau:
-                - **�?a ch?:** 69 ��o Duy T?, H?i An.
-                - **Zalo / S�T:** 0935 000 442.
+                **Thông tin bổ sung (chỉ cung cấp khi được hỏi):**
+                Nếu chị hỏi về "Công Ty Thiết Kế In Ấn Hội An", em có thể cung cấp thông tin sau:
+                - **Địa chỉ:** 69 Đào Duy Từ, Hội An.
+                - **Zalo / SĐT:** 0935 000 442.
                 
-                **T�nh to�n gi� decal:**
-                N?u ch? cung c?p k�ch thu?c (v� d?: "0,2x0,5" ho?c "0.2x0.5") v�/ho?c s? lu?ng (v� d?: "x2" ho?c "nh�n 2") cho **decal**, em h�y th?c hi?n t�nh to�n gi�.
-                - Gi� decal tr?ng l� 85.000 VN�/m�.
-                - C�ng th?c t�nh: (chi?u d�i * chi?u r?ng * s? lu?ng) * 85000.
-                - N?u ch? kh�ng cung c?p s? lu?ng, m?c d?nh s? lu?ng l� 1.
-                - V� d?: "0,2x0,5x2 decal" s? du?c hi?u l� d�i 0.2m, r?ng 0.5m, s? lu?ng 2 decal.
-                - V� d?: "0,2x0,5 decal" s? du?c hi?u l� d�i 0.2m, r?ng 0.5m, s? lu?ng 1 decal.
+                **Tính toán giá decal:**
+                Nếu chị cung cấp kích thước (ví dụ: "0,2x0,5" hoặc "0.2x0.5") và/hoặc số lượng (ví dụ: "x2" hoặc "nhân 2") cho **decal**, em hãy thực hiện tính toán giá.
+                - Giá decal trắng là 85.000 VNĐ/m².
+                - Công thức tính: (chiều dài * chiều rộng * số lượng) * 85000.
+                - Nếu chị không cung cấp số lượng, mặc định số lượng là 1.
+                - Ví dụ: "0,2x0,5x2 decal" sẽ được hiểu là dài 0.2m, rộng 0.5m, số lượng 2 decal.
+                - Ví dụ: "0,2x0,5 decal" sẽ được hiểu là dài 0.2m, rộng 0.5m, số lượng 1 decal.
 
-                **T�nh to�n gi� in decal th?:**
-                N?u ch? cung c?p k�ch thu?c v�/ho?c s? lu?ng cho **in decal th?**, em h�y th?c hi?n t�nh to�n gi�.
-                - Gi� in decal th? l� 80.000 VN�/m�.
-                - C�ng th?c t�nh: (chi?u d�i * chi?u r?ng * s? lu?ng) * 80000.
-                - V� d?: "0,2x0,5x2 in decal th?" s? du?c hi?u l� d�i 0.2m, r?ng 0.5m, s? lu?ng 2 in decal th?.
+                **Tính toán giá in decal thợ:**
+                Nếu chị cung cấp kích thước và/hoặc số lượng cho **in decal thợ**, em hãy thực hiện tính toán giá.
+                - Giá in decal thợ là 80.000 VNĐ/m².
+                - Công thức tính: (chiều dài * chiều rộng * số lượng) * 80000.
+                - Ví dụ: "0,2x0,5x2 in decal thợ" sẽ được hiểu là dài 0.2m, rộng 0.5m, số lượng 2 in decal thợ.
 
-                **T�nh to�n gi� decal b? (ho?c b?):**
-                N?u ch? cung c?p k�ch thu?c v�/ho?c s? lu?ng cho **decal b?** ho?c ch? **b?**, em h�y th?c hi?n t�nh to�n gi�.
-                - Gi� decal b? l� 145.000 VN�/m�.
-                - C�ng th?c t�nh: (chi?u d�i * chi?u r?ng * s? lu?ng) * 145000.
-                - N?u ch? kh�ng cung c?p s? lu?ng, m?c d?nh s? lu?ng l� 1.
-                - V� d?: "0,2x0,5x2 decal b?" ho?c "0,2x0,5x2 b?" s? du?c hi?u l� d�i 0.2m, r?ng 0.5m, s? lu?ng 2 decal b?.
-                - V� d?: "0,2x0,5 decal b?" ho?c "0,2x0,5 b?" s? du?c hi?u l� d�i 0.2m, r?ng 0.5m, s? lu?ng 1 decal b?.
+                **Tính toán giá decal bế (hoặc bế):**
+                Nếu chị cung cấp kích thước và/hoặc số lượng cho **decal bế** hoặc chỉ **bế**, em hãy thực hiện tính toán giá.
+                - Giá decal bế là 145.000 VNĐ/m².
+                - Công thức tính: (chiều dài * chiều rộng * số lượng) * 145000.
+                - Nếu chị không cung cấp số lượng, mặc định số lượng là 1.
+                - Ví dụ: "0,2x0,5x2 decal bế" hoặc "0,2x0,5x2 bế" sẽ được hiểu là dài 0.2m, rộng 0.5m, số lượng 2 decal bế.
+                - Ví dụ: "0,2x0,5 decal bế" hoặc "0,2x0,5 bế" sẽ được hiểu là dài 0.2m, rộng 0.5m, số lượng 1 decal bế.
 
-                **T�nh to�n gi� in b?t:**
-                N?u ch? cung c?p k�ch thu?c (v� d?: "0,2x0,5" ho?c "0.2x0.5") v�/ho?c s? lu?ng (v� d?: "x2" ho?c "nh�n 2") cho **in b?t**, em h�y th?c hi?n t�nh to�n gi�.
-                - Gi� in b?t l� 35.000 VN�/m�.
-                - C�ng th?c t�nh: (chi?u d�i * chi?u r?ng * s? lu?ng) * 35000.
-                - N?u ch? kh�ng cung c?p s? lu?ng, m?c d?nh s? lu?ng l� 1.
-                - V� d?: "0,2x0,5x2 in b?t" s? du?c hi?u l� d�i 0.2m, r?ng 0.5m, s? lu?ng 2 in b?t.
-                - V� d?: "0,2x0,5 in b?t" s? du?c hi?u l� d�i 0.2m, r?ng 0.5m, s? lu?ng 1 in b?t.
+                **Tính toán giá in bạt:**
+                Nếu chị cung cấp kích thước (ví dụ: "0,2x0,5" hoặc "0.2x0.5") và/hoặc số lượng (ví dụ: "x2" hoặc "nhân 2") cho **in bạt**, em hãy thực hiện tính toán giá.
+                - Giá in bạt là 35.000 VNĐ/m².
+                - Công thức tính: (chiều dài * chiều rộng * số lượng) * 35000.
+                - Nếu chị không cung cấp số lượng, mặc định số lượng là 1.
+                - Ví dụ: "0,2x0,5x2 in bạt" sẽ được hiểu là dài 0.2m, rộng 0.5m, số lượng 2 in bạt.
+                - Ví dụ: "0,2x0,5 in bạt" sẽ được hiểu là dài 0.2m, rộng 0.5m, số lượng 1 in bạt.
 
-                **T�nh to�n gi� in b?t th?:**
-                N?u ch? cung c?p k�ch thu?c v�/ho?c s? lu?ng cho **in b?t th?**, em h�y th?c hi?n t�nh to�n gi�.
-                - Gi� in b?t th? l� 30.000 VN�/m�.
-                - C�ng th?c t�nh: (chi?u d�i * chi?u r?ng * s? lu?ng) * 30000.
-                - V� d?: "0,2x0,5x2 in b?t th?" s? du?c hi?u l� d�i 0.2m, r?ng 0.5m, s? lu?ng 2 in b?t th?.
+                **Tính toán giá in bạt thợ:**
+                Nếu chị cung cấp kích thước và/hoặc số lượng cho **in bạt thợ**, em hãy thực hiện tính toán giá.
+                - Giá in bạt thợ là 30.000 VNĐ/m².
+                - Công thức tính: (chiều dài * chiều rộng * số lượng) * 30000.
+                - Ví dụ: "0,2x0,5x2 in bạt thợ" sẽ được hiểu là dài 0.2m, rộng 0.5m, số lượng 2 in bạt thợ.
 
-                **T�nh to�n gi� c�n m�n:**
-                N?u ch? cung c?p k�ch thu?c (v� d?: "0,2x0,5" ho?c "0.2x0.5") v�/ho?c s? lu?ng (v� d?: "x2" ho?c "nh�n 2") cho **c�n m�n**, em h�y th?c hi?n t�nh to�n gi�.
-                - Gi� c�n m�n l� 100.000 VN�/m�.
-                - C�ng th?c t�nh: (chi?u d�i * chi?u r?ng * s? lu?ng) * 100000.
-                - N?u ch? kh�ng cung c?p s? lu?ng, m?c d?nh s? lu?ng l� 1.
-                - V� d?: "0,2x0,5x2 c�n m�n" s? du?c hi?u l� d�i 0.2m, r?ng 0.5m, s? lu?ng 2 c�n m�n.
-                - V� d?: "0,2x0,5 c�n m�n" s? du?c hi?u l� d�i 0.2m, r?ng 0.5m, s? lu?ng 1 c�n m�n.
+                **Tính toán giá cán màn:**
+                Nếu chị cung cấp kích thước (ví dụ: "0,2x0,5" hoặc "0.2x0.5") và/hoặc số lượng (ví dụ: "x2" hoặc "nhân 2") cho **cán màn**, em hãy thực hiện tính toán giá.
+                - Giá cán màn là 100.000 VNĐ/m².
+                - Công thức tính: (chiều dài * chiều rộng * số lượng) * 100000.
+                - Nếu chị không cung cấp số lượng, mặc định số lượng là 1.
+                - Ví dụ: "0,2x0,5x2 cán màn" sẽ được hiểu là dài 0.2m, rộng 0.5m, số lượng 2 cán màn.
+                - Ví dụ: "0,2x0,5 cán màn" sẽ được hiểu là dài 0.2m, rộng 0.5m, số lượng 1 cán màn.
                 
-                **T�nh th�m ph� h�a don:**
-                N?u ch? n�i "c� h�a don" ho?c "l?y h�a don" ho?c "xu?t h�a don" trong c�ng m?t y�u c?u t�nh gi�, h�y t�nh th�m 8% tr�n t?ng gi� tr? d� t�nh.
-                - C�ng th?c: T?ng gi� * 1.08.
-                - H�y th�ng b�o r� r�ng v? vi?c c?ng th�m 8% cho h�a don.
+                **Tính thêm phí hóa đơn:**
+                Nếu chị nói "có hóa đơn" hoặc "lấy hóa đơn" hoặc "xuất hóa đơn" trong cùng một yêu cầu tính giá, hãy tính thêm 8% trên tổng giá trị đã tính.
+                - Công thức: Tổng giá * 1.08.
+                - Hãy thông báo rõ ràng về việc cộng thêm 8% cho hóa đơn.
 
-                - Lu�n l�m tr�n k?t qu? d?n hai ch? s? th?p ph�n n?u c?n v� hi?n th? don v? VN�.
-                - **QUAN TR?NG:** Khi hi?n th? k?t qu? gi� ti?n, h�y d?nh d?ng s? theo ki?u "000,000,000 VN�" (v� d?: 123,456,789 VN�).
+                - Luôn làm tròn kết quả đến hai chữ số thập phân nếu cần và hiển thị đơn vị VNĐ.
+                - **QUAN TRỌNG:** Khi hiển thị kết quả giá tiền, hãy định dạng số theo kiểu "000,000,000 VNĐ" (ví dụ: 123,456,789 VNĐ).
             `;
 
             const payload = {
@@ -206,20 +206,20 @@
                 const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
                 if (!response.ok) {
                     const errorBody = await response.json();
-                    throw new Error(`L?i API: ${errorBody.error.message}`);
+                    throw new Error(`Lỗi API: ${errorBody.error.message}`);
                 }
                 const result = await response.json();
                 if (result.candidates && result.candidates.length > 0 && result.candidates[0].content.parts) {
                     return result.candidates[0].content.parts[0].text;
                 }
                 if (result.promptFeedback && result.promptFeedback.blockReason) {
-                    return `Y�u c?u c?a ch? d� b? ch?n v�: ${result.promptFeedback.blockReason}.`;
+                    return `Yêu cầu của chị đã bị chặn vì: ${result.promptFeedback.blockReason}.`;
                 }
-                throw new Error("Kh�ng nh?n du?c ph?n h?i h?p l? t? API.");
+                throw new Error("Không nhận được phản hồi hợp lệ từ API.");
             } catch (error) {
-                console.error(`API key t?i v? tr� ${currentApiKeyIndex} th?t b?i:`, error.message);
+                console.error(`API key tại vị trí ${currentApiKeyIndex} thất bại:`, error.message);
                 currentApiKeyIndex = (currentApiKeyIndex + 1) % apiKeys.length;
-                console.log(`Chuy?n sang API key t?i v? tr� ${currentApiKeyIndex}`);
+                console.log(`Chuyển sang API key tại vị trí ${currentApiKeyIndex}`);
                 return getGeminiResponse(retryCount + 1);
             }
         };
@@ -245,10 +245,10 @@
                 });
 
                 localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(allOrders));
-                appendMessage({ text: "�on h�ng c?a ch? d� du?c luu th�nh c�ng v�o b? nh? c?c b? c?a tr�nh duy?t!" }, 'bot');
+                appendMessage({ text: "Đơn hàng của chị đã được lưu thành công vào bộ nhớ cục bộ của trình duyệt!" }, 'bot');
             } catch (error) {
-                console.error("L?i khi luu don h�ng v�o Local Storage:", error);
-                appendMessage({ text: `L?i khi luu don h�ng: ${error.message}. Vui l�ng th? l?i.` }, 'bot', true);
+                console.error("Lỗi khi lưu đơn hàng vào Local Storage:", error);
+                appendMessage({ text: `Lỗi khi lưu đơn hàng: ${error.message}. Vui lòng thử lại.` }, 'bot', true);
             }
         };
 
@@ -258,19 +258,19 @@
                 const allOrders = storedData ? JSON.parse(storedData) : {};
 
                 let targetDate = date;
-                let messagePrefix = '��y l� c�c don h�ng ch? d� luu:';
+                let messagePrefix = 'Đây là các đơn hàng chị đã lưu:';
 
                 if (date === 'CURRENT_DAY') {
                     targetDate = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
-                    messagePrefix = `��y l� t?t c? don h�ng ch? d� nh?p trong ng�y h�m nay (${targetDate}):`;
+                    messagePrefix = `Đây là tất cả đơn hàng chị đã nhập trong ngày hôm nay (${targetDate}):`;
                 } else if (date) {
-                    messagePrefix = `��y l� c�c don h�ng ch? d� nh?p v�o ng�y ${date}:`;
+                    messagePrefix = `Đây là các đơn hàng chị đã nhập vào ngày ${date}:`;
                 }
 
                 const ordersForDate = allOrders[targetDate] || [];
 
                 if (ordersForDate.length === 0) {
-                    appendMessage({ text: `Kh�ng t�m th?y don h�ng n�o cho ng�y ${targetDate === new Date().toISOString().slice(0, 10) ? 'h�m nay' : targetDate}.` }, 'bot');
+                    appendMessage({ text: `Không tìm thấy đơn hàng nào cho ngày ${targetDate === new Date().toISOString().slice(0, 10) ? 'hôm nay' : targetDate}.` }, 'bot');
                     return;
                 }
 
@@ -281,14 +281,14 @@
                     const formattedDate = orderTimestamp.toLocaleDateString('vi-VN');
                     
                     let itemsString = orderData.items.map(item => `${item.item} (${item.quantity})`).join(', ');
-                    orderList.push(`- �on h�ng l�c ${formattedTime} ng�y ${formattedDate}: ${itemsString}`);
+                    orderList.push(`- Đơn hàng lúc ${formattedTime} ngày ${formattedDate}: ${itemsString}`);
                 });
 
                 appendMessage({ text: `${messagePrefix}\n${orderList.join('\n')}` }, 'bot');
 
             } catch (error) {
-                console.error("L?i khi l?y don h�ng t? Local Storage:", error);
-                appendMessage({ text: `L?i khi l?y don h�ng: ${error.message}. Vui l�ng th? l?i.` }, 'bot', true);
+                console.error("Lỗi khi lấy đơn hàng từ Local Storage:", error);
+                appendMessage({ text: `Lỗi khi lấy đơn hàng: ${error.message}. Vui lòng thử lại.` }, 'bot', true);
             }
         };
 
@@ -299,7 +299,7 @@
             if (!message && uploadedImages.length === 0) return;
 
             if (apiKeys.length === 0 || apiKeys.every(k => k.startsWith("YOUR_API_KEY"))) { 
-                appendMessage({ text: "L?i: Vui l�ng c?u h�nh API key trong m� ngu?n c?a file HTML." }, 'bot', true); 
+                appendMessage({ text: "Lỗi: Vui lòng cấu hình API key trong mã nguồn của file HTML." }, 'bot', true); 
                 return; 
             }
 
@@ -328,11 +328,11 @@
                         if (Array.isArray(itemsToSave) && itemsToSave.every(item => item.item && item.quantity)) {
                             await saveOrder(itemsToSave);
                         } else {
-                            appendMessage({ text: "Em xin l?i, em kh�ng hi?u d?nh d?ng don h�ng ch? mu?n luu. Vui l�ng th? l?i v?i d?nh d?ng chu?n hon." }, 'bot', true);
+                            appendMessage({ text: "Em xin lỗi, em không hiểu định dạng đơn hàng chị muốn lưu. Vui lòng thử lại với định dạng chuẩn hơn." }, 'bot', true);
                         }
                     } catch (parseError) {
-                        console.error("L?i ph�n t�ch JSON don h�ng:", parseError);
-                        appendMessage({ text: "Em xin l?i, em g?p l?i khi x? l� don h�ng c?a ch?. Vui l�ng th? l?i." }, 'bot', true);
+                        console.error("Lỗi phân tích JSON đơn hàng:", parseError);
+                        appendMessage({ text: "Em xin lỗi, em gặp lỗi khi xử lý đơn hàng của chị. Vui lòng thử lại." }, 'bot', true);
                     }
                 } else if (botResponse.startsWith('ORDER_RETRIEVE:')) {
                     const dateCommand = botResponse.substring('ORDER_RETRIEVE:'.length).trim();
@@ -343,7 +343,7 @@
                     chatHistory.push({ role: "model", parts: [{ text: botResponse }] });
                 }
             } catch (error) {
-                console.error('L?i cu?i c�ng khi g?i tin nh?n:', error);
+                console.error('Lỗi cuối cùng khi gửi tin nhắn:', error);
                 appendMessage({ text: error.message }, 'bot', true);
             } finally {
                 toggleLoading(false);
@@ -352,7 +352,7 @@
         
         // --- Initialization ---
         const initializeAppUI = () => {
-            appendMessage({ text: "Xin ch�o ch?! Em l� tr? l� ?o c?a Tr?n Th? Thu� H?ng. Em c� th? gi�p g� cho ch? h�m nay?" }, 'bot');
+            appendMessage({ text: "Xin chào chị! Em là trợ lý ảo của Trần Thị Thuý Hằng. Em có thể giúp gì cho chị hôm nay?" }, 'bot');
             new VanillaTelex(userInput);
         };
 
@@ -362,7 +362,7 @@
         };
 
         // --- Helper functions ---
-        function processFiles(files) { if (!files || files.length === 0) return; imageInfo.classList.remove('text-red-500'); const imageFiles = Array.from(files).filter(file => file.type.startsWith('image/')); if (imageFiles.length === 0) return; if (uploadedImages.length + imageFiles.length > MAX_IMAGES) { imageInfo.textContent = `Ch? ch? c� th? t?i l�n t?i da ${MAX_IMAGES} ?nh.`; imageInfo.classList.add('text-red-500'); return; } for (const file of imageFiles) { const isDuplicate = uploadedImages.some(img => img.file.name === file.name && img.file.size === file.size && img.file.lastModified === file.lastModified); if (isDuplicate) continue; const reader = new FileReader(); reader.onload = (event) => { const base64Data = event.target.result.split(',')[1]; uploadedImages.push({ data: base64Data, mimeType: file.type, file: file }); createImagePreview(event.target.result, file); updateImageCount(); }; reader.readAsDataURL(file); } }
+        function processFiles(files) { if (!files || files.length === 0) return; imageInfo.classList.remove('text-red-500'); const imageFiles = Array.from(files).filter(file => file.type.startsWith('image/')); if (imageFiles.length === 0) return; if (uploadedImages.length + imageFiles.length > MAX_IMAGES) { imageInfo.textContent = `Chị chỉ có thể tải lên tối đa ${MAX_IMAGES} ảnh.`; imageInfo.classList.add('text-red-500'); return; } for (const file of imageFiles) { const isDuplicate = uploadedImages.some(img => img.file.name === file.name && img.file.size === file.size && img.file.lastModified === file.lastModified); if (isDuplicate) continue; const reader = new FileReader(); reader.onload = (event) => { const base64Data = event.target.result.split(',')[1]; uploadedImages.push({ data: base64Data, mimeType: file.type, file: file }); createImagePreview(event.target.result, file); updateImageCount(); }; reader.readAsDataURL(file); } }
         imageInput.addEventListener('change', (e) => { processFiles(e.target.files); e.target.value = ''; });
         userInput.addEventListener('paste', (e) => { const files = e.clipboardData?.files; if (files && files.length > 0) { e.preventDefault(); processFiles(files); } });
         ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => { inputArea.addEventListener(eventName, (e) => { e.preventDefault(); e.stopPropagation(); }); });
@@ -370,7 +370,7 @@
         ['dragleave', 'drop'].forEach(eventName => { inputArea.addEventListener(eventName, () => inputArea.classList.remove('drag-over')); });
         inputArea.addEventListener('drop', (e) => { const files = e.dataTransfer?.files; if (files) { processFiles(files); } });
         function createImagePreview(dataUrl, file) { const previewWrapper = document.createElement('div'); previewWrapper.className = 'relative'; const img = document.createElement('img'); img.src = dataUrl; img.className = 'h-16 w-16 object-cover rounded-md'; previewWrapper.appendChild(img); const removeBtn = document.createElement('button'); removeBtn.innerHTML = '&times;'; removeBtn.className = 'absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs leading-none'; removeBtn.onclick = () => { uploadedImages = uploadedImages.filter(img => img.file !== file); previewWrapper.remove(); updateImageCount(); }; previewWrapper.appendChild(removeBtn); imagePreviewContainer.appendChild(previewWrapper); }
-        function updateImageCount() { imageInfo.classList.remove('text-red-500'); if (uploadedImages.length > 0) { imageInfo.textContent = `�� t?i l�n ${uploadedImages.length}/${MAX_IMAGES} ?nh.`; } else { imageInfo.textContent = ''; } }
+        function updateImageCount() { imageInfo.classList.remove('text-red-500'); if (uploadedImages.length > 0) { imageInfo.textContent = `Đã tải lên ${uploadedImages.length}/${MAX_IMAGES} ảnh.`; } else { imageInfo.textContent = ''; } }
         function appendMessage(data, sender, isError = false) { const { text, images } = data; const messageWrapper = document.createElement('div'); messageWrapper.className = `flex items-start gap-3 mb-4 ${sender === 'user' ? 'justify-end' : ''}`; const messageContent = document.createElement('div'); messageContent.className = `p-3 rounded-lg max-w-xs md:max-w-md lg:max-w-xl ${sender === 'user' ? 'bg-blue-600 text-white' : isError ? 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200' : 'bg-gray-200 dark:bg-gray-700'}`; if (images && images.length > 0) { const imageGrid = document.createElement('div'); imageGrid.className = 'grid grid-cols-3 gap-1'; images.forEach(file => { const img = document.createElement('img'); img.src = URL.createObjectURL(file); img.className = 'w-full h-auto object-cover rounded'; img.onload = () => URL.revokeObjectURL(img.src); imageGrid.appendChild(img); }); messageContent.appendChild(imageGrid); } if (text) { const textElement = document.createElement('p'); textElement.className = `text-sm ${sender === 'bot' && !isError ? 'text-gray-800 dark:text-gray-200' : ''} ${(images && images.length > 0) ? 'mt-2' : ''}`; textElement.innerHTML = text.replace(/\n/g, '<br>'); messageContent.appendChild(textElement); } const avatar = document.createElement('div'); avatar.className = 'flex-shrink-0 h-10 w-10 rounded-full flex items-center justify-center font-bold text-white'; if (sender === 'user') { avatar.className += ' bg-gray-500'; avatar.textContent = 'U'; messageWrapper.appendChild(messageContent); messageWrapper.appendChild(avatar); } else { avatar.className += isError ? ' bg-red-500' : ' bg-blue-500'; avatar.textContent = 'B'; messageWrapper.appendChild(avatar); messageWrapper.appendChild(messageContent); } const mainChatContainer = document.querySelector('.chat-container'); mainChatContainer.appendChild(messageWrapper); mainChatContainer.scrollTop = mainChatContainer.scrollHeight; }
         function toggleLoading(isLoading) { sendButton.disabled = isLoading; userInput.disabled = isLoading; document.getElementById('image-upload-button').style.pointerEvents = isLoading ? 'none' : 'auto'; sendText.classList.toggle('hidden', isLoading); loadingSpinner.classList.toggle('hidden', !isLoading); if (!isLoading) { userInput.focus(); } }
 
